@@ -1,0 +1,27 @@
+import pandas
+
+db=pandas.read_csv('SalaryData.csv')
+
+db
+
+y=db['Salary']
+
+x=db['YearsExperience'].values.reshape(-1,1)
+
+from sklearn.linear_model import LinearRegression
+
+salary=LinearRegression()
+
+salary.fit(x,y)
+
+salary.predict([[1.1]])
+
+c=(36187/39343)*100
+c
+
+import joblib
+
+joblib.dump(salary, 'Salary.pk1')
+
+salary.coef_
+
